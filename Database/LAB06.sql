@@ -16,6 +16,19 @@ PRICE FLOAT NOT NULL,
 PRIMARY KEY (CODE)
 )
 GO
+CREATE TABLE CUSTOMER(
+CusID INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
+CusUser varchar(25) not null,
+CusPass varchar(32) not null,
+CusName Nvarchar(50) not null, 
+CusPhone varchar(12) null UNIQUE,
+CusAdd nvarchar(255) null,
+CusEmail varchar(50) null,
+CusFacebook nvarchar(150)null,
+CusSkyber nvarchar(150) null,
+CusStatus tinyint not null
+)
+GO
 -- INSERT DATA ---------------------------------------
 INSERT INTO USER_ACCOUNT (USER_NAME, GENDER, PASSWORD) VALUES ('tom', 'M', 'tom001');
 INSERT INTO USER_ACCOUNT (USER_NAME, GENDER, PASSWORD) VALUES ('jerry', 'M', 'jerry001');

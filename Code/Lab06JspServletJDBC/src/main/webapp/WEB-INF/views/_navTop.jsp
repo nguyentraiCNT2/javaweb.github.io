@@ -50,5 +50,10 @@
                 User List
             </a>
         </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/customerList">
+                Customer List
+            </a>
+        </li>
     </ul>
 </nav>

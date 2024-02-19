@@ -59,6 +59,39 @@ public class productEditServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        req.setCharacterEncoding("UTF-8");
+        String errorString = null;
+        String code = req.getParameter("code");
+        String name = req.getParameter("name");
+        String priceStr = req.getParameter("price");
+        float price =  0;
+        try {
+            price = Float.parseFloat(priceStr);
+
+        }catch (Exception e){
+            errorString = e.getMessage();
+
+        }
+        Product product = new Product(code, name, price);
+        if (errorString != null ){
+            req.setAttribute("errorString", errorString);
+            req.setAttribute("product", product);
+            RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/WEB-INF/views/productEdit.jsp");
+            dispatcher.forward(req,resp);
+        }
+        Connection conn = null;
+        try {
+            conn = ConnectionUtils.getMSSQLConnections();
+            ProductUtils.updateProduct(conn,product);
+            resp.sendRedirect(req.getContextPath()+"/productList");
+
+        }catch (Exception e){
+        e.printStackTrace();
+        errorString = e.getMessage();
+        req.setAttribute("errorString", errorString);
+        req.setAttribute("product", product);
+        RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/WEB-INF/views/productEdit.jsp");
+        dispatcher.forward(req,resp);
+        }
     }
 }
