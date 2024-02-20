@@ -27,16 +27,16 @@ public class CustomerUtils {
             String CusSkyber = rs.getString("CusSkyber");
             Byte CusStatus = rs.getByte("CusStatus");
             Customer customer = new Customer();
-            customer.setCusID(CusID);
-            customer.setCusUser(CusUser);
-            customer.setCusPass(CusPass);
-            customer.setCusName(CusName);
-            customer.setCusPhone(CusPhone);
-            customer.setCusAdd(CusAdd);
-            customer.setCusEmail(CusEmail);
-            customer.setCusFacebook(CusFacebook);
-            customer.setCusSkyber(CusSkyber);
-            customer.setCusStatus(CusStatus);
+            customer.setId(CusID);
+            customer.setUser(CusUser);
+            customer.setPass(CusPass);
+            customer.setName(CusName);
+            customer.setPhone(CusPhone);
+            customer.setAdd(CusAdd);
+            customer.setEmail(CusEmail);
+            customer.setFacebook(CusFacebook);
+            customer.setSkyber(CusSkyber);
+            customer.setStatus(CusStatus);
             customerList.add(customer);
 
         }
@@ -60,16 +60,16 @@ public class CustomerUtils {
             String CusSkyber =rs.getString("CusSkyber");
             Byte CusStatus = rs.getByte("CusStatus");
                 Customer customer = new Customer();
-                customer.setCusID(CusID);
-            customer.setCusUser(CusUser);
-            customer.setCusPass(CusPass);
-            customer.setCusName(CusName);
-            customer.setCusPhone(CusPhone);
-            customer.setCusAdd(CusAdd);
-            customer.setCusEmail(CusEmail);
-            customer.setCusFacebook(CusFacebook);
-            customer.setCusSkyber(CusSkyber);
-            customer.setCusStatus(CusStatus);
+            customer.setId(CusID);
+            customer.setUser(CusUser);
+            customer.setPass(CusPass);
+            customer.setName(CusName);
+            customer.setPhone(CusPhone);
+            customer.setAdd(CusAdd);
+            customer.setEmail(CusEmail);
+            customer.setFacebook(CusFacebook);
+            customer.setSkyber(CusSkyber);
+            customer.setStatus(CusStatus);
             return customer;
 
 
@@ -77,35 +77,68 @@ public class CustomerUtils {
         return null;
 
     }
+    public static List<Customer> findByCusUser(Connection conn, String CusUser) throws SQLException{
+        String sql = "SELECT a.CusID, a.CusUser, a.CusPass, a.CusName, a.CusPhone, a.CusAdd, a.CusEmail, a.CusFacebook, a.CusSkyber, a.CusStatus FROM CUSTOMER a WHERE CusUser = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, CusUser);
+        ResultSet rs = statement.executeQuery();
+        List<Customer> customerList = new ArrayList<Customer>();
+        while (rs.next()){
+            int CusID = rs.getInt("CusID");
+            String CusPass = rs.getString("CusPass");
+            String CusName = rs.getString("CusName");
+            String CusPhone = rs.getString("CusPhone");
+            String CusAdd = rs.getString("CusAdd");
+            String CusEmail = rs.getString("CusEmail");
+            String CusFacebook = rs.getString("CusFacebook");
+            String CusSkyber = rs.getString("CusSkyber");
+            Byte CusStatus = rs.getByte("CusStatus");
+            Customer customer = new Customer();
+            customer.setId(CusID);
+            customer.setUser(CusUser);
+            customer.setPass(CusPass);
+            customer.setName(CusName);
+            customer.setPhone(CusPhone);
+            customer.setAdd(CusAdd);
+            customer.setEmail(CusEmail);
+            customer.setFacebook(CusFacebook);
+            customer.setSkyber(CusSkyber);
+            customer.setStatus(CusStatus);
+            customerList.add(customer);
+
+        }
+        return  customerList;
+
+    }
     public static void createCustomer(Connection conn, Customer customer) throws SQLException{
         String sql = "INSERT INTO CUSTOMER (CusUser, CusPass, CusName, CusPhone, CusAdd, CusEmail, CusFacebook, CusSkyber, CusStatus) "
                 + "VALUES (?,?,?,?,?,?,?,?,?) ";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1,customer.getCusUser());
-        statement.setString(2,customer.getCusPass());
-        statement.setString(3,customer.getCusName());
-        statement.setString(4,customer.getCusPhone());
-        statement.setString(5,customer.getCusAdd());
-        statement.setString(6,customer.getCusEmail());
-        statement.setString(7,customer.getCusFacebook());
-        statement.setString(8,customer.getCusSkyber());
-        statement.setByte(9,customer.getCusStatus());
+        statement.setString(1,customer.getUser());
+        statement.setString(2,customer.getPass());
+        statement.setString(3,customer.getName());
+        statement.setString(4,customer.getPhone());
+        statement.setString(5,customer.getAdd());
+        statement.setString(6,customer. getEmail());
+        statement.setString(7,customer.getFacebook());
+        statement.setString(8,customer.getSkyber());
+        statement.setByte(9,customer.getStatus());
         statement.executeUpdate();
     }
     public static void updateCustomer(Connection conn, Customer customer) throws SQLException{
         String sql= "UPDATE CUSTOMER SET CusUser = ? , CusPass =?, CusName =?, CusPhone =?, CusAdd =?, CusEmail =?, CusFacebook =?, CusSkyber =?, CusStatus =? WHERE CusID =?";
 
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1,customer.getCusUser());
-        statement.setString(2,customer.getCusPass());
-        statement.setString(3,customer.getCusName());
-        statement.setString(4,customer.getCusPhone());
-        statement.setString(5,customer.getCusAdd());
-        statement.setString(6,customer.getCusEmail());
-        statement.setString(7,customer.getCusFacebook());
-        statement.setString(8,customer.getCusSkyber());
-        statement.setByte(9,customer.getCusStatus());
-        statement.setInt(10,customer.getCusID());
+        statement.setString(1,customer.getUser());
+        statement.setString(2,customer.getPass());
+        statement.setString(3,customer.getName());
+        statement.setString(4,customer.getPhone());
+        statement.setString(5,customer.getAdd());
+        statement.setString(6,customer. getEmail());
+        statement.setString(7,customer.getFacebook());
+        statement.setString(8,customer.getSkyber());
+        statement.setByte(9,customer.getStatus());
+        statement.setInt(10,customer.getId());
         statement.executeUpdate();
     }
 

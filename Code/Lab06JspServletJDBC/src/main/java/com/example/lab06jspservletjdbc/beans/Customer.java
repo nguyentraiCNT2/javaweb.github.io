@@ -1,110 +1,110 @@
 package com.example.lab06jspservletjdbc.beans;
 
 public class Customer {
-    private int CusID;
-    private String CusUser;
-    private  String CusPass;
-    private String CusName;
-    private String CusPhone;
-    private String CusAdd;
-    private String CusEmail;
-    private String CusFacebook;
-    private String  CusSkyber;
-    private Byte CusStatus;
+    private int id;
+    private String user;
+    private  String pass;
+    private String name;
+    private String phone;
+    private String add;
+    private String email;
+    private String facebook;
+    private String  skyber;
+    private Byte status;
 
     public Customer() {
     }
 
-    public Customer(int cusID, String cusUser, String cusPass, String cusName, String cusPhone, String cusAdd, String cusEmail, String cusFacebook, String cusSkyber, Byte cusStatus) {
-        CusID = cusID;
-        CusUser = cusUser;
-        CusPass = cusPass;
-        CusName = cusName;
-        CusPhone = cusPhone;
-        CusAdd = cusAdd;
-        CusEmail = cusEmail;
-        CusFacebook = cusFacebook;
-        CusSkyber = cusSkyber;
-        CusStatus = cusStatus;
+    public Customer(int id, String user, String pass, String name, String phone, String add, String email, String facebook, String skyber, Byte status) {
+        this.id = id;
+        this.user = user;
+        this.pass = pass;
+        this.name = name;
+        this.phone = phone;
+        this.add = add;
+        this.email = email;
+        this.facebook = facebook;
+        this.skyber = skyber;
+        this.status = status;
     }
 
-    public int getCusID() {
-        return CusID;
+    public int getId() {
+        return id;
     }
 
-    public void setCusID(int cusID) {
-        CusID = cusID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCusUser() {
-        return CusUser;
+    public String getUser() {
+        return user;
     }
 
-    public void setCusUser(String cusUser) {
-        CusUser = cusUser;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getCusPass() {
-        return CusPass;
+    public String getPass() {
+        return pass;
     }
 
-    public void setCusPass(String cusPass) {
-        CusPass = cusPass;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public String getCusName() {
-        return CusName;
+    public String getName() {
+        return name;
     }
 
-    public void setCusName(String cusName) {
-        CusName = cusName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCusPhone() {
-        return CusPhone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCusPhone(String cusPhone) {
-        CusPhone = cusPhone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getCusAdd() {
-        return CusAdd;
+    public String getAdd() {
+        return add;
     }
 
-    public void setCusAdd(String cusAdd) {
-        CusAdd = cusAdd;
+    public void setAdd(String add) {
+        this.add = add;
     }
 
-    public String getCusEmail() {
-        return CusEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCusEmail(String cusEmail) {
-        CusEmail = cusEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCusFacebook() {
-        return CusFacebook;
+    public String getFacebook() {
+        return facebook;
     }
 
-    public void setCusFacebook(String cusFacebook) {
-        CusFacebook = cusFacebook;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
-    public String getCusSkyber() {
-        return CusSkyber;
+    public String getSkyber() {
+        return skyber;
     }
 
-    public void setCusSkyber(String cusSkyber) {
-        CusSkyber = cusSkyber;
+    public void setSkyber(String skyber) {
+        this.skyber = skyber;
     }
 
-    public Byte getCusStatus() {
-        return CusStatus;
+    public Byte getStatus() {
+        return status;
     }
 
-    public void setCusStatus(Byte cusStatus) {
-        CusStatus = cusStatus;
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 }

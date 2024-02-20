@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Customer List</title>
+    <title>Customer Search</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
@@ -11,6 +11,7 @@
 <jsp:include page="_navTop.jsp"></jsp:include>
 <section class="container">
     <h3>Customer List</h3>
+    <a href="customerList"> Back</a>
     <form action="${pageContext.request.contextPath}/customerSearch" method="get">
         <label >Search by CusUser:</label>
         <input type="text" name="searchCusUser" />
@@ -35,7 +36,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach  var="customer" items="${customerList}">
+        <c:forEach  var="customer" items="${customer}">
             <tr>
                 <td>${customer.id}</td>
                 <td>${customer.user}</td>
