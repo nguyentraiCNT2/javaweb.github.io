@@ -5,16 +5,16 @@ public class UserAccount {
     private static final String GENDER_FEMALE = "F";
 
     private String username;
-    private String gender;
-    private String password;
+    private String sex;
+    private String pass;
 
     public UserAccount() {
     }
 
-    public UserAccount(String username, String gender, String password) {
+    public UserAccount(String username, String sex, String pass) {
         this.username = username;
-        this.gender = gender;
-        this.password = password;
+        this.sex = sex;
+        this.pass = pass;
     }
 
     public String getUsername() {
@@ -25,19 +25,20 @@ public class UserAccount {
         this.username = username;
     }
 
-    public String getGender() {
-        return gender;
+    public String getSex() {
+        return sex;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
+
 }
