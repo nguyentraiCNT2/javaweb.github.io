@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="noname-hibernate.cfg.xml@31/Hibernate" uuid="4be52e5e-e1d4-48c0-84d4-a3e24e33f5e3">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/javawweb_Ninhngoctuan/Code/Lab05Hibernate01/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://DESKTOP-MOTUJCG\\SQLSERVER:1433;databaseName=Lab05_Hibernate;encrypt=false</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

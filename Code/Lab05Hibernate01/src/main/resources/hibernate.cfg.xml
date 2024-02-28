@@ -19,5 +19,6 @@
             true
         </property>
         <mapping class="com.example.lab05hibernate01.entity.ProductEntity"/>
+        <mapping class="com.example.lab05hibernate01.entity.EMPLOYEE" />
     </session-factory>
 </hibernate-configuration>
