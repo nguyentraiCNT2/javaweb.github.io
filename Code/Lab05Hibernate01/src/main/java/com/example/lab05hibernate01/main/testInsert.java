@@ -45,8 +45,13 @@ public class testInsert {
             CreateEmployee.setDEPT_ID(deptid);
             CreateEmployee.setMNG_ID(mngid);
             boolean flag = new EmployeeDAOIMPL().insertEmployee(CreateEmployee);
-            if (flag == true ) System.out.println("Thêm mới dữ liệu thành công! ");
-            else System.out.println("Sảy ra lỗi thêm mới sản phẩm! ");
+            if (flag == true )
+            {
+                System.out.println("Thêm mới dữ liệu thành công! ");
+            }
+            else {
+                System.out.println("Sảy ra lỗi thêm mới sản phẩm! ");
+            }
         }catch (Exception e){
             System.out.println("Định dạng không hợp lệ. Hãy nhập theo định dạng dd-MM-yyyy.");
         }
