@@ -24,7 +24,7 @@ public class EMPLOYEEEntity {
     private String JOB;
     @ManyToOne
     @JoinColumn(name = "DEPT_ID")
-    private DEPARTMENTEntity DEPT_ID;
+    private DEPARTMENT DEPT_ID;
     @ManyToOne
     @JoinColumn(name = "MNG_ID")
     private EMPLOYEEEntity MNG_ID;
@@ -79,11 +79,11 @@ public class EMPLOYEEEntity {
         this.JOB = JOB;
     }
 
-    public DEPARTMENTEntity getDEPT_ID() {
+    public DEPARTMENT getDEPT_ID() {
         return DEPT_ID;
     }
 
-    public void setDEPT_ID(DEPARTMENTEntity DEPT_ID) {
+    public void setDEPT_ID(DEPARTMENT DEPT_ID) {
         this.DEPT_ID = DEPT_ID;
     }
 

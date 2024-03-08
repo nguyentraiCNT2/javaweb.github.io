@@ -1,8 +1,8 @@
 package com.ninhngoctuan.day10_ontap_jdbc.dao.IMPL;
 
 import com.ninhngoctuan.day10_ontap_jdbc.dao.DEPARTMENTDAO;
-import com.ninhngoctuan.day10_ontap_jdbc.entity.DEPARTMENTEntity;
-import com.ninhngoctuan.day10_ontap_jdbc.entity.TIMEKEEPEREntity;
+
+import com.ninhngoctuan.day10_ontap_jdbc.entity.DEPARTMENT;
 import com.ninhngoctuan.day10_ontap_jdbc.util.HibernateUtil;
 import org.hibernate.Session;
 
@@ -10,28 +10,19 @@ import java.util.List;
 
 public class DEPARTMENTDAOIMPL implements DEPARTMENTDAO {
     @Override
-    public List<DEPARTMENTEntity> getAll() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try{
-            session.beginTransaction();
-            List<DEPARTMENTEntity> list = session.createQuery("from DEPARTMENTEntity ").list();
-            session.getTransaction();
-            session.close();
-            return list;
-        }catch (Exception e){
-            e.printStackTrace();
-            session.close();
+    public List<DEPARTMENT> getAll() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from DEPARTMENT", DEPARTMENT.class).list();
         }
-        return null;
     }
 
     @Override
-    public List<DEPARTMENTEntity> getDEPARTMENTByDEPT_NAME(String DEPT_NAME) {
+    public List<DEPARTMENT> getDEPARTMENTByDEPT_NAME(String DEPT_NAME) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            List<DEPARTMENTEntity> department =  session.createQuery("from DEPARTMENTEntity where DEPT_NAME = :DEPT_NAME").setParameter("DEPT_NAME", DEPT_NAME).list();
-            session.getTransaction();
+            List<DEPARTMENT> department =  session.createQuery("from DEPARTMENT where DEPT_NAME = :DEPT_NAME").setParameter("DEPT_NAME", DEPT_NAME).list();
+            session.getTransaction().commit();
             session.close();
             return department;
         }catch (Exception e){
@@ -42,12 +33,12 @@ public class DEPARTMENTDAOIMPL implements DEPARTMENTDAO {
     }
 
     @Override
-    public DEPARTMENTEntity getDEPARTMENTByid(Integer DEPT_ID) {
+    public DEPARTMENT getDEPARTMENTByid(Integer DEPT_ID) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            DEPARTMENTEntity department = (DEPARTMENTEntity) session.createQuery("from DEPARTMENTEntity where DEPT_ID = :DEPT_ID").setParameter("DEPT_ID",DEPT_ID ).uniqueResult();
-            session.getTransaction();
+            DEPARTMENT department = (DEPARTMENT) session.createQuery("from DEPARTMENT where DEPT_ID = :DEPT_ID").setParameter("DEPT_ID",DEPT_ID ).uniqueResult();
+            session.getTransaction().commit();
             session.close();
             return department;
         }catch (Exception e){
@@ -58,7 +49,7 @@ public class DEPARTMENTDAOIMPL implements DEPARTMENTDAO {
     }
 
     @Override
-    public Boolean insertDEPARTMENT(DEPARTMENTEntity department) {
+    public Boolean insertDEPARTMENT(DEPARTMENT department) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
@@ -75,7 +66,7 @@ public class DEPARTMENTDAOIMPL implements DEPARTMENTDAO {
     }
 
     @Override
-    public Boolean updateDEPARTMENT(DEPARTMENTEntity department) {
+    public Boolean updateDEPARTMENT(DEPARTMENT department) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
@@ -96,7 +87,7 @@ public class DEPARTMENTDAOIMPL implements DEPARTMENTDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction();
-            int res = session.createQuery("delete  from DEPARTMENTEntity where DEPT_ID = :DEPT_ID").setParameter("DEPT_ID", DEPT_ID).executeUpdate();
+            int res = session.createQuery("delete  from DEPARTMENT where DEPT_ID = :DEPT_ID").setParameter("DEPT_ID", DEPT_ID).executeUpdate();
             session.getTransaction().commit();
             session.close();
             if (res>0)

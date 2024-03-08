@@ -17,6 +17,10 @@
 <jsp:include page="_navTop.jsp" ></jsp:include>
 <section class="container border my-2 " style="min-height: 150px">
 <h1 class="text-center my-5">Welcome to HOMEPAGE</h1>
+    <h1>Hình ảnh:</h1>
+    a
+
+    <img src="images/anh4.png" alt="Hình ảnh mô tả" width="200" height="200">
 </section>
 <jsp:include page="_footer.jsp" ></jsp:include>
 

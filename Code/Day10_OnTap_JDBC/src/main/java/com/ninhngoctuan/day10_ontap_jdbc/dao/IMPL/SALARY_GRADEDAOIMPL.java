@@ -1,7 +1,6 @@
 package com.ninhngoctuan.day10_ontap_jdbc.dao.IMPL;
 
 import com.ninhngoctuan.day10_ontap_jdbc.dao.SALARY_GRADEDAO;
-import com.ninhngoctuan.day10_ontap_jdbc.entity.DEPARTMENTEntity;
 import com.ninhngoctuan.day10_ontap_jdbc.entity.SALARY_GRADE;
 import com.ninhngoctuan.day10_ontap_jdbc.util.HibernateUtil;
 import org.hibernate.Session;
@@ -50,7 +49,6 @@ public class SALARY_GRADEDAOIMPL implements SALARY_GRADEDAO {
             session.getTransaction().commit();
             session.close();
             return true;
-
         }catch (Exception e){
             e.printStackTrace();
             session.close();

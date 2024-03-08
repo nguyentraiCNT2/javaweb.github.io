@@ -4,12 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "DEPARTMENT")
-public class DEPARTMENTEntity {
+public class DEPARTMENT {
     @Id
     @Basic(optional = false)
     @Column(name = "DEPT_ID")
     private Integer DEPT_ID;
-    @Column(name = "DEPT_ID")
+    @Column(name = "DEPT_NAME")
     private String DEPT_NAME;
     @Column(name = "DEPT_NO")
     private String DEPT_NO;

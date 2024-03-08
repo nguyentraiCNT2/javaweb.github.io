@@ -1,6 +1,5 @@
 package com.ninhngoctuan.day10_ontap_jdbc.dao;
 
-import com.ninhngoctuan.day10_ontap_jdbc.entity.DEPARTMENTEntity;
 import com.ninhngoctuan.day10_ontap_jdbc.entity.EMPLOYEEEntity;
 
 import java.math.BigDecimal;
