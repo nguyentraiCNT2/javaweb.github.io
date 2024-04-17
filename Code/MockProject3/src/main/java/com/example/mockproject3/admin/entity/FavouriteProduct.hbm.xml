@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20:03:11, 16 thg 4, 2024 by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="Mock_Project3_db" name="com.example.mockproject3.admin.entity.FavouriteProduct" optimistic-lock="none" schema="dbo" table="Favourite_product">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.example.mockproject3.admin.entity.Products" fetch="select" name="products">
+            <column name="Pid"/>
+        </many-to-one>
+        <many-to-one class="com.example.mockproject3.admin.entity.Users" fetch="select" name="users">
+            <column name="Uid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

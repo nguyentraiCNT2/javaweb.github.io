@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="Mock_Project3_db" match-schema="INFORMATION_SCHEMA" match-name=".*" exclude="true"/>
+  <table-filter match-catalog="Mock_Project3_db" match-schema="dbo" match-name=".*"/>
+  <table-filter match-catalog="Mock_Project3_db" match-schema="sys" match-name=".*" exclude="true"/>
+</hibernate-reverse-engineering>

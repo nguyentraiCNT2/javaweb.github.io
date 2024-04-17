@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20:03:11, 16 thg 4, 2024 by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="Mock_Project3_db" name="com.example.mockproject3.admin.entity.Products" optimistic-lock="none" schema="dbo" table="Products">
+        <id name="pid" type="java.lang.Integer">
+            <column name="Pid"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.example.mockproject3.admin.entity.Categories" fetch="select" name="categories">
+            <column name="Cid" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.example.mockproject3.admin.entity.Suppliers" fetch="select" name="suppliers">
+            <column name="Sid" not-null="true"/>
+        </many-to-one>
+        <property name="productName" type="serializable">
+            <column name="Product_Name" not-null="true"/>
+        </property>
+        <property name="image" type="serializable">
+            <column name="Image" not-null="true"/>
+        </property>
+        <property name="description" type="string">
+            <column name="Description"/>
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="orderDetailses" table="Order_Details">
+            <key>
+                <column name="Pid" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.OrderDetails"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="sizes" table="Size">
+            <key>
+                <column name="Pid" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.Size"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="favouriteProducts" table="Favourite_product">
+            <key>
+                <column name="Pid"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.FavouriteProduct"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="rates" table="Rate">
+            <key>
+                <column name="Pid" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.Rate"/>
+        </set>
+    </class>
+</hibernate-mapping>

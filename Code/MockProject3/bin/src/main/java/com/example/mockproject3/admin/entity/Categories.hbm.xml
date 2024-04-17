@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20:03:11, 16 thg 4, 2024 by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="Mock_Project3_db" name="com.example.mockproject3.admin.entity.Categories" optimistic-lock="none" schema="dbo" table="Categories">
+        <id name="cid" type="java.lang.Integer">
+            <column name="Cid"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="serializable">
+            <column name="Name" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="productses" table="Products">
+            <key>
+                <column name="Cid" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.Products"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20:03:11, 16 thg 4, 2024 by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="Mock_Project3_db" name="com.example.mockproject3.admin.entity.Orders" optimistic-lock="none" schema="dbo" table="Orders">
+        <id name="oid" type="java.lang.Integer">
+            <column name="Oid"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.example.mockproject3.admin.entity.Users" fetch="select" name="users">
+            <column name="Uid" not-null="true"/>
+        </many-to-one>
+        <property name="createDate" type="timestamp">
+            <column length="23" name="Create_Date" not-null="true"/>
+        </property>
+        <property name="status" type="int">
+            <column name="Status" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="orderDetailses" table="Order_Details">
+            <key>
+                <column name="Oid" not-null="true"/>
+            </key>
+            <one-to-many class="com.example.mockproject3.admin.entity.OrderDetails"/>
+        </set>
+    </class>
+</hibernate-mapping>
